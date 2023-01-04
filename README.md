@@ -15,31 +15,31 @@ Dev2Cents is built using
 
 - **PYTHON**
 
-  ![PYTHON](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_python.png)
+  ![PYTHON](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_python.png)
 
 - **HTML**
 
-  ![HTML](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_html.png)
+  ![HTML](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_html.png)
 
 - **CSS**
 
-  ![CSS](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_css.png)
+  ![CSS](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_css.png)
 
 - **DJANGO**
   
-  ![DJANGO](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_django.png)
+  ![DJANGO](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_django.png)
 
 - **BOOTSTRAP**
 
-  ![BOOTSTRAP](https://github.com/S13G/Dev2cents/blob/main/static/tools/bootstrap-transformed.png)
+  ![BOOTSTRAP](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/bootstrap-transformed.png)
 
 - **MARIA DB (database used)**
 
-  ![MARIADB](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_mariadb.png)
+  ![MARIADB](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_mariadb.png)
 
 - **JAVASCRIPT**
 
-  ![JAVASCRIPT](https://github.com/S13G/Dev2cents/blob/main/static/tools/rsz_js.png)
+  ![JAVASCRIPT](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/rsz_js.png)
 
 ### Installation
 
@@ -79,5 +79,5 @@ Then run the python server with the command
 
 ### Preview
 
-![Dev2cents](https://github.com/S13G/Dev2cents/blob/main/static/tools/Screenshot1.png)
+![Dev2cents](https://github.com/ehuntober/Dev2cents/blob/main/static/tools/Screenshot1.png)
 
