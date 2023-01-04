@@ -10,4 +10,4 @@ def login(request):
     return render(request,'home/login.html')
 
 def signup(request):
-    return render(request,'home/sign.html')
+    return render(request,'home/signup.html')
