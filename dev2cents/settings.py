@@ -162,10 +162,10 @@ JAZZMIN_SETTINGS = {
     "site_brand": "Dev2cents Admin",
 
     # Logo to use for your site, must be present in static files, used for brand on top left ok
-    "site_logo": "",
+    "site_logo": "images/admin-logo.png",
 
     # Logo to use for your site, must be present in static files, used for login form logo (defaults to site_logo)
-    "login_logo": "",
+    "login_logo": "images/admin-logo.png",
 
     # CSS classes that are applied to the logo above
     "site_logo_classes": "img-circle",
@@ -210,7 +210,8 @@ JAZZMIN_SETTINGS = {
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
         {"name": "Dev2Cents Platform", "url": "/", "new_window": True},
-        {"model": "auth.user"}
+        {"model": "auth.user"},
+        {"model": "cents.cent"}
     ],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
@@ -221,6 +222,10 @@ JAZZMIN_SETTINGS = {
     "icons": {
         "auth.group": "fas fa-users",
         "auth.user": "fas fa-user-cog",
+        "cents.category": "fas fa-bars",
+        "cents.cent": "fas fa-comment",
+        "users.profile": "fas fa-user",
+        "users.newsletter": "fas fa-envelope",
 
     },
     # Icons that are used when one is not manually specified

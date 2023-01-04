@@ -6,6 +6,7 @@ from django.db import IntegrityError
 from django.shortcuts import render, redirect
 
 from users.decorators import login_excluded
+from users.forms import NewsletterForm
 
 
 # Create your views here.
@@ -23,19 +24,19 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Logged in successfully")
-            return redirect("")
+            return redirect("homepage")
         else:
             messages.error(request, "Error logging in")
-            return render(request, "")
+            return render(request, "users/login.html")
     else:
-        return render(request, "")
+        return render(request, "users/login.html")
 
 
 @login_required(login_url="login")
 def logout_view(request):
     logout(request)
     messages.info(request, "Successfully logged out")
-    return redirect("")
+    return redirect("homepage")
 
 
 @login_excluded(redirect_to="home")
@@ -51,7 +52,7 @@ def register(request, **extra_fields):
         confirmation = request.POST["confirmation"]
         if password != confirmation:
             messages.error(request, "Passwords don't match")
-            return render(request, "")
+            return render(request, "users/signup.html")
 
         # Attempt to create new user
         try:
@@ -61,9 +62,11 @@ def register(request, **extra_fields):
             user.save()
         except IntegrityError:
             messages.info(request, "Username has already been taken")
-            return render(request, "")
+            return render(request, "users/signup.html")
         login(request, user)
         messages.success(request, "Logged in successfully")
-        return redirect("")
+        return redirect("homepage")
     else:
-        return render(request, "")
+        return render(request, "users/signup.html")
+
+

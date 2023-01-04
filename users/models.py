@@ -36,3 +36,11 @@ class Profile(models.Model):
         except:
             url = ""
         return url
+
+
+class Newsletter(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
+    email = models.CharField(max_length=300, null=True, unique=True)
+
+    def __str__(self):
+        return str(self.email)
