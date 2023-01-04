@@ -85,7 +85,6 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'users.User'
 
 WSGI_APPLICATION = 'dev2cents.wsgi.application'
 
@@ -245,6 +244,8 @@ JAZZMIN_SETTINGS = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
+
+CKEDITOR_UPLOAD_PATH = 'cents/'
 
 SITE_ID = 1
 

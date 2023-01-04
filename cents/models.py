@@ -10,7 +10,7 @@ from django.db import models
 
 
 class Category(models.Model):
-    id = models.UUIDField(uuid=uuid.uuid4(), unique=True, primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     name = models.CharField(max_length=25, null=True)
     slug = AutoSlugField(populate_from='name', unique=True, always_update=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -24,7 +24,7 @@ class Category(models.Model):
 
 
 class Cent(models.Model):
-    id = models.UUIDField(uuid=uuid.uuid4(), unique=True, primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="cents")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='cents')
     description = RichTextField(config_name="awesome_ckeditor", null=True)
