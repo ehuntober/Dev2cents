@@ -15,8 +15,9 @@ def homepage(request):
             newsletter_form.save()
             messages.success(request, "You have successfully signed up for the newsletter")
         else:
-            messages.info(request, "Not valid, Try again")
+            messages.info(request, "You have already signed up for the newsletter")
     else:
+        messages.error(request, "Not valid, Try again")
         newsletter_form = NewsletterForm()
     context = {"newsletter_form": newsletter_form}
     return render(request, "index.html", context)
