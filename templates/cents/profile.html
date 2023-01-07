@@ -1,0 +1,54 @@
+
+
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %} 
+
+{% comment %} <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+        <div class="card text-center">
+          <img src="profile-picture.jpg" alt="Profile picture" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Username</h5>
+            <p class="card-text">Full Name</p>
+            <p class="card-text">Email: email@example.com</p>
+            <p class="card-text">Career: Software Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> {% endcomment %}
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-3 text-center">
+        <img src="{% static 'images/avatar.jpg' %}" alt="Avatar" class="mx-auto rounded-circle" style="width:200px; height:200px;">
+        <button type="button" class="btn btn-secondary btn-sm mt-3">Update image</button>
+      </div>
+      <div class="col-md-9">
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control mb-2" id="username" value="john_doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control mb-2" id="email" value="john.doe@example.com">
+          </div>
+          <div class="form-group">
+            <label for="career">Career</label>
+            <input type="text" class="form-control mb-4" id="career" value="Software engineer">
+          </div>
+          <button type="submit" class="btn btn-primary mr-3">Save</button>
+          <button type="button" class="btn btn-secondary">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock %}
+

@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+{%load static %}
+
+{% block content %} 
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+
+       <div class="text-center">
+        <img src="{% static 'images/avatar.jpg' %}"  alt="Avatar" class="mx-auto rounded-circle" style="width:200px; height:200px;">
+      </div> 
+
+
+      <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+        <form>
+          <div class="form-group">
+            <label for="image"><i class="fa fa-image"></i> Change Profile Picture</label>
+            <input type="file" class="form-control-file" id="image">
+          </div>
+          <div class="form-group mb-3">
+            <label for="username"></label>
+            <input type="text" class="form-control" id="username"  placeholder="Username">
+          </div>
+          <div class="form-group mb-3">
+            <label for="email"></label>
+            <input type="email" class="form-control" id="email" placeholder="email@example.com">
+          </div>
+          <div class="form-group mb-3">
+            <label for="fullname"></label>
+            <input type="text" class="form-control" id="fullname" placeholder="fullname">
+          </div>
+          <div class="form-group mb-3">
+            <label for="career"></label>
+            <input type="text" class="form-control" id="career" placeholder="e.g software developer,technical writer ">
+          </div>
+          <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary">Update Profile</>
+            </div>
+
+        </form>
+    </div>
+</div>
+  
+{% endblock %}
