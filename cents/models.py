@@ -1,7 +1,7 @@
 import uuid
 
 from autoslug import AutoSlugField
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -26,8 +26,8 @@ class Category(models.Model):
 class Cent(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name="cents")
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='cents')
-    description = RichTextField(config_name="awesome_ckeditor", null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='cents', null=True, blank=True)
+    description = RichTextUploadingField(config_name="awesome_ckeditor", null=True)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

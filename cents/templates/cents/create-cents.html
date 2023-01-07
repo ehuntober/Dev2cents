@@ -12,9 +12,10 @@
       
       <div class="col-lg-6 col-md-8 col-sm-10 col-12">
         <h4 class='text-center' > Compose a 2cents </h4>
-        <form >
+        <form method="post">
+            {% csrf_token %}
           <div class="form-group">
-            <textarea class="form-control" rows="3" cols="6" placeholder="What's on your mind?"></textarea>
+              {{ form.as_p }}
           </div>
 
           <div class="text-center mt-3">
