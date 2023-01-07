@@ -6,7 +6,7 @@ from django.db import IntegrityError
 from django.shortcuts import render, redirect
 
 from users.decorators import login_excluded
-from users.forms import NewsletterForm
+from users.forms import ProfileForm
 
 
 # Create your views here.
@@ -60,6 +60,7 @@ def register(request, **extra_fields):
             extra_fields = {**extra_fields, "first_name": first_name, "last_name": last_name}
             user = User.objects.create_user(username, email, password, **extra_fields)
             user.save()
+            messages.success(request, "User account created successfully")
         except IntegrityError:
             messages.info(request, "Username has already been taken")
             return render(request, "users/signup.html")
@@ -70,3 +71,25 @@ def register(request, **extra_fields):
         return render(request, "users/signup.html")
 
 
+@login_required(login_url="login")
+def user_account(request):
+    user_profile = request.user.profile
+    if user_profile is None:
+        messages.error(request, "User profile does not exist")
+        return render(request, "error-page.html")
+    context = {"user_profile": user_profile}
+    return render(request, "users/profile.html", context)
+
+
+@login_required(login_url="login")
+def edit_account(request):
+    user_profile = request.user.profile
+    profile_form = ProfileForm(instance=user_profile)
+    if request.method == "POST":
+        profile_form = ProfileForm(request.POST, request.FILES, instance=user_profile)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, "Profile edited successfully")
+            return redirect('user_profile')
+    context = {"profile_form": profile_form}
+    return render(request, "users/create-profile.html", context)

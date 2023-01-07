@@ -1,14 +1,15 @@
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from users.models import User, Profile
+from users.models import Profile
 
 
 # Create profile automatically for newly registered user
 @receiver(post_save, sender=User)
-def createProfile(sender, instance, created, **kwargs):
+def create_profile(sender, instance, created, **kwargs):
     if created:
         user = instance
         profile = Profile.objects.create(
@@ -19,9 +20,9 @@ def createProfile(sender, instance, created, **kwargs):
             last_name=user.last_name,
         )
 
-        subject = "Welcome to Carteras"
-        body = "You have signed up to Carteras, we are glad you are here. Upload your skills, your projects and " \
-               "make sure you connect with other developers. Happy coding "
+        subject = "Welcome to Dev2Cents"
+        body = "You have signed up to Dev2Cents, we are glad you are here. Make Cents, motivate others, talk about " \
+               "tech and keep things fun "
 
         email = EmailMessage(
             subject=subject,
@@ -36,7 +37,7 @@ def createProfile(sender, instance, created, **kwargs):
 
 # function to update user information if profile is updated
 @receiver(post_save, sender=Profile)
-def updateUser(sender, instance, created, **kwargs):
+def update_user(sender, instance, created, **kwargs):
     profile = instance
     user = profile.user
     if not created:
@@ -49,7 +50,7 @@ def updateUser(sender, instance, created, **kwargs):
 
 # delete user account if profile is deleted
 @receiver(post_delete, sender=Profile)
-def deleteUser(sender, instance, **kwargs):
+def delete_user(sender, instance, **kwargs):
     try:
         user = instance.user
         user.delete()
