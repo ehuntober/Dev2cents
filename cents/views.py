@@ -1,12 +1,12 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
+from django.http import Http404
+from django.shortcuts import render, redirect, get_object_or_404
 
 from cents.forms import CentsForm
 from cents.models import Cent, Like
 from users.forms import NewsletterForm
-from users.models import Profile
 
 
 # Create your views here.
@@ -52,6 +52,7 @@ def create_cents(request):
     return render(request, "cents/create-cents.html", context)
 
 
+@login_required(login_url="login")
 def like(request, cent_id):
     if request.method == "POST":
         # make sure the user can't like more than one post
@@ -65,6 +66,7 @@ def like(request, cent_id):
         cent.hearts += 1
         # adds user to cent
         cent.user_likes.add(user)
+        messages.info(request, "You liked this cent")
         cent.save()
         new_like.save()
 
@@ -75,6 +77,7 @@ def like(request, cent_id):
         return render(request, "cents/cents-feed.html", context)
 
 
+@login_required(login_url="login")
 def dislike(request, cent_id):
     if request.method == "POST":
         # make sure the user can't like more than one post
@@ -88,6 +91,7 @@ def dislike(request, cent_id):
         cent.hearts -= 1
         # removes user to cent
         cent.user_likes.remove(user)
+        messages.info(request, "You unliked this cent")
         cent.save()
         new_like.save()
 
@@ -96,3 +100,9 @@ def dislike(request, cent_id):
 
         context = {"user": user, "cent": cent, "cents": cents}
         return render(request, "cents/cents-feed.html", context)
+
+
+def top_cents(request):
+    cents = Cent.objects.filter(hearts__gte=10)
+    context = {"cents": cents}
+    return render(request, "cents/top-cents.html", context)
