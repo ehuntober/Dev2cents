@@ -12,10 +12,32 @@
                 <div>
                     <p class="card-text quote py-2 mb-2">{{ cent.description|safe }}</p>
 
-                    <a href="{% url 'user_profile' cent.owner.profile.id %}"><h4>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</h4></a>
+                    <a href="{% url 'user_profile' cent.owner.profile.id %}">
+                        <h4>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</h4></a>
                     <small><i>{{ cent.owner.profile.title }}</i> </small> <br>
-                    <img src="{% static 'images/download.svg' %}" alt="User's avatar" class="avatar mr-3" width="20"
-                         height="20"> 12
+                    <img src="{% static 'images/download.svg' %}" alt="likes" class="avatar mr-3" width="20"
+                         height="20">
+                    <div>{{ cent.hearts }}</div>
+
+                    {% if user in cent.user_likes.all %}
+                        <form method="post" action="{% url 'dislike' cent.id %}" name="dislike">
+                            {% csrf_token %}
+                            <div>
+                                <button type="submit" name="dislike" value="{{ cent.id }}" class="btn btn-primary">
+                                    Unlike
+                                </button>
+                            </div>
+                        </form>
+                    {% else %}
+                        <form method="post" action="{% url 'like' cent.id %}" name="like">
+                            {% csrf_token %}
+                            <div>
+                                <button type="submit" name="like" value="{{ cent.id }}" class="btn btn-primary">
+                                    Like
+                                </button>
+                            </div>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>

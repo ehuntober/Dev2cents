@@ -6,7 +6,7 @@ from cents.models import Cent
 class CentsForm(forms.ModelForm):
     class Meta:
         model = Cent
-        fields = [ "description"]
+        fields = ["description"]
 
     def __init__(self, *args, **kwargs):
         super(CentsForm, self).__init__(*args, **kwargs)
