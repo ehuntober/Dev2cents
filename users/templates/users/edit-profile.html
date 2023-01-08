@@ -8,14 +8,14 @@
         <div class="row justify-content-center">
 
             <div class="text-center">
-                <img src="{% static 'images/avatar.jpg' %}" alt="Avatar" class="mx-auto rounded-circle"
+                <img src="{{ profile.image_url }}" alt="Avatar" class="mx-auto rounded-circle"
                      style="width:200px; height:200px;">
             </div>
 
             <div class="col-lg-6 col-md-8 col-sm-10 col-12">
                 <br>
 
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in profile_form %}
                         <div class="form-group mb-3">

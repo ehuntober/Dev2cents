@@ -10,12 +10,9 @@
                 <img src="{{ cent.owner.profile.image_url }}" alt="User's avatar" class="avatar mr-3" width="50"
                      height="50">
                 <div>
-                    {% if category %}
-                        <p class="card-text quote py-2 mb-2">{{ cent.category.name }}</p>
-                    {% endif %}
                     <p class="card-text quote py-2 mb-2">{{ cent.description|safe }}</p>
 
-                    <h4>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</h4>
+                    <a href="{% url 'user_profile' cent.owner.profile.id %}"><h4>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</h4></a>
                     <small><i>{{ cent.owner.profile.title }}</i> </small> <br>
                     <img src="{% static 'images/download.svg' %}" alt="User's avatar" class="avatar mr-3" width="20"
                          height="20"> 12

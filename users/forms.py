@@ -17,7 +17,8 @@ class NewsletterForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ["created", "user"]
+        fields = "__all__"
+        exclude = ["user"]
 
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)

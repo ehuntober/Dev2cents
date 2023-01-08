@@ -45,9 +45,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'cloudinary',
     'jazzmin',
-    'autoslug',
-    'ckeditor',
-    'ckeditor_uploader'
 ]
 
 LOCAL_APPS = [
@@ -141,7 +138,7 @@ STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = '/images/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR / 'static/images')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -247,29 +244,6 @@ JAZZMIN_SETTINGS = {
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
-
-CKEDITOR_UPLOAD_PATH = 'cents/'
-
-SITE_ID = 1
-
-CKEDITOR_CONFIGS = {
-    'awesome_ckeditor': {
-        'toolbar': 'Custom',
-        'width': '100%',
-        'height': '300',
-        'removePlugins': "exportpdf",
-        'toolbar_Custom': [
-            ['Styles', 'Format', 'Font', 'FontSize', 'Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'Undo',
-             'Redo', '-', 'Find', 'Replace', '-', 'Outdent', 'Indent', ],
-            '/',
-            ['NumberedList', 'BulletedList', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Image', 'Table', '-', 'Link', 'Flash', 'Smiley', 'TextColor', 'BGColor', 'Source']
-
-        ]
-    },
-}
 
 # EMAIL CONFIGURATION
 DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')

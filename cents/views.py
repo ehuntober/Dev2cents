@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
 from cents.models import Cent
+from users.models import Profile
 from users.forms import NewsletterForm
 from cents.forms import CentsForm
 

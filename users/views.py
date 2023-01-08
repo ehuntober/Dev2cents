@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 
 from users.decorators import login_excluded
 from users.forms import ProfileForm
+from users.models import Profile
 
 
 # Create your views here.
@@ -73,24 +74,31 @@ def register(request, **extra_fields):
 
 @login_required(login_url="login")
 def user_account(request):
-    user_profile = request.user.profile
-    if user_profile is None:
+    profile = request.user.profile
+    if profile is None:
         messages.error(request, "User profile does not exist")
         return render(request, "error-page.html")
-    context = {"user_profile": user_profile}
+    context = {"user_profile": profile}
     return render(request, "users/profile.html", context)
 
 
 @login_required(login_url="login")
 def edit_account(request):
-    user_profile = request.user.profile
-    profile_form = ProfileForm(instance=user_profile)
+    user_account_profile = request.user.profile
+    profile_form = ProfileForm(instance=user_account_profile)
 
     if request.method == "POST":
-        profile_form = ProfileForm(request.POST, request.FILES, instance=user_profile)
+        profile_form = ProfileForm(request.POST, request.FILES, instance=user_account_profile)
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, "Profile edited successfully")
-            return redirect('user_profile')
-    context = {"profile_form": profile_form}
-    return render(request, "users/create-profile.html", context)
+            return redirect('user_account')
+    context = {"profile_form": profile_form, "profile": user_account_profile}
+    return render(request, "users/edit-profile.html", context)
+
+
+@login_required(login_url="login")
+def user_profile(request, pk):
+    profile = Profile.objects.get(id=pk)
+    context = {"profile": profile}
+    return render(request, "users/user-profile.html", context)
