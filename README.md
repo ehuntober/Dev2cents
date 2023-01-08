@@ -1,4 +1,4 @@
-## Dev2Censt
+## Dev2Cents
 
 Dev2cents is a platform where developers(senior,mid-dev) post facts, quote, motivation about development, software engineering,tech etc, which will motivate other developers(newbie) and aid them in their career as a developer
 
