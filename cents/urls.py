@@ -8,5 +8,7 @@ urlpatterns = [
     path('create-cents/', views.create_cents, name="create_cents"),
     path('cent/like/<str:cent_id>/', views.like, name="like"),
     path('cent/dislike/<str:cent_id>/', views.dislike, name="dislike"),
-    path('top-cents/', views.top_cents, name="top_cents")
+    path('top-cents/', views.top_cents, name="top_cents"),
+    path('my-cents/', views.my_cents, name="my_cents"),
+
 ]

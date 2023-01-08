@@ -106,3 +106,11 @@ def top_cents(request):
     cents = Cent.objects.filter(hearts__gte=10)
     context = {"cents": cents}
     return render(request, "cents/top-cents.html", context)
+
+
+@login_required(login_url="login")
+def my_cents(request):
+    cents = Cent.objects.filter(owner=request.user)
+    context = {"cents": cents}
+    return render(request, "cents/my-cents.html", context)
+
