@@ -67,7 +67,7 @@ def register(request, **extra_fields):
             return render(request, "users/signup.html")
         login(request, user)
         messages.success(request, "Logged in successfully")
-        return redirect("homepage")
+        return redirect("edit_account")
     else:
         return render(request, "users/signup.html")
 
