@@ -19,7 +19,7 @@
                     {% csrf_token %}
                     {% for field in profile_form %}
                         <div class="form-group mb-3">
-                            <label for="image"><i class="fa fa-image"></i>{{ field.label }}</label><br>
+                            <label for="image">{{ field.label }}</label><br>
                             {{ field }}
                         </div>
                     {% endfor %}
