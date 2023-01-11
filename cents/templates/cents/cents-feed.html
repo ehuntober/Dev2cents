@@ -15,10 +15,10 @@
                         <p class="card-text quote px-2 py-1 mb-1"
                            style="font-family: 'Roboto', sans-serif;">{{ cent.description|safe|linebreaksbr }}</p>
                         {% if cent.owner.profile.social_github %}
-                            <a href="{{ cent.owner.profile.social_github }}"><i class="bi bi-github"
+                            <a href="{{ cent.owner.profile.social_github }}" target="_blank"><i class="bi bi-github"
                                                                                 style="color: whitesmoke;"></i></a>
                         {% endif %}
-                        <a href="{% url 'user_profile' cent.owner.profile.id %}" target="_blank"
+                        <a href="{% url 'user_profile' cent.owner.profile.id %}"
                            style="text-decoration:none;"
                            class="text-danger">
                             <span>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</span></a> ~
