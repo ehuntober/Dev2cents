@@ -147,7 +147,7 @@ STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static')]
 
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
@@ -156,6 +156,10 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL_PREFIX = config("STATIC_URL_PREFIX")
+
+STATIC_FILES_PATH = config("STATIC_FILES_PATH")
 
 # CLOUDINARY
 cloudinary.config(
