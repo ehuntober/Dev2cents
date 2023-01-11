@@ -143,11 +143,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
+
+STATIC_ROOT = config("APP_HOME") + config("STATIC_URL_PREFIX") + "/static/"
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static')]
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
