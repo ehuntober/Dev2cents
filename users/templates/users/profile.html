@@ -6,11 +6,10 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-8 col-sm-10 col-12">
-                <div class="px-4 py-5 my-5 text-center">
-                        <img src="{{ user_profile.image_url }}" alt="Profile picture" class="card-img-top">
-                        <a href="{% url 'edit_account' %}">
-                            <button type="button" class="btn btn-secondary btn-sm mt-3">Update profile</button>
-                        </a>
+                <div class="px-4 py-5 my-5 text-center border bg-danger text-light">
+                        <img src="{{ user_profile.image_url }}" alt="Profile picture" class="card-img-top 
+                        rounded-circle" style="width:200px;height:200px" >
+                        
                     <div class="card-body">
                         <h5 class="card-title">Username: {{ user_profile.username }}</h5>
                         <p class="card-text">Full Name: {{ user_profile.first_name }} {{ user_profile.last_name }}</p>
@@ -30,10 +29,18 @@
                             <p class="card-text">Twitter: {{ user_profile.social_twitter }}</p>
                         {% endif %}
                     </div>
+                    <a href="{% url 'edit_account' %}">
+                        <button type="button" class="btn btn-light btn-sm mt-3">Update profile</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+
+
+
+
+      
 
 {% endblock %}
 
