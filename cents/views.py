@@ -19,6 +19,8 @@ def homepage(request):
             newsletter_form.clean()
             newsletter_form.save()
             messages.success(request, "You have successfully signed up for the newsletter")
+            # Creating new instance of the form
+            newsletter_form = NewsletterForm()
         else:
             messages.info(request, "You have already signed up for the newsletter")
     else:

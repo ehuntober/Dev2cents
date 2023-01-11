@@ -11,7 +11,7 @@
                 <img src="{{ cent.owner.profile.image_url }}" alt="User's avatar" class="avatar mr-3 rounded-circle" width="50"
                      height="50">
                 <div>
-                    <p class="card-text quote px-2 py-1 mb-1" style="font-family: 'Roboto', sans-serif;">{{ cent.description|safe }}</p>
+                    <p class="card-text quote px-2 py-1 mb-1" style="font-family: 'Roboto', sans-serif;">{{ cent.description|safe|linebreaksbr }}</p>
 
                     <a href="{% url 'user_profile' cent.owner.profile.id %}" style="text-decoration:none;" class="text-danger">
                         <span>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</span></a> ~
