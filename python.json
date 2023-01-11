@@ -1,6 +1,0 @@
-{
-  "deploy": {
-    "module": "dev2cents_wsgi",
-    "static": "/static/"
-  }
-}
