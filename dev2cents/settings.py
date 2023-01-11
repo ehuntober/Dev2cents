@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dev2cents.cleverapps.io', '127.0.0.1']
 
 # Application definition
 
@@ -88,10 +88,24 @@ WSGI_APPLICATION = 'dev2cents.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# Online DB
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config("POSTGRESQL_ADDON_DB"),
+        'USER': config("POSTGRESQL_ADDON_USER"),
+        'PASSWORD': config("POSTGRESQL_ADDON_PASSWORD"),
+        'HOST': config("POSTGRESQL_ADDON_HOST"),
+        'PORT': config("POSTGRESQL_ADDON_PORT"),
+        'CONN_MAX_AGE': 5,
     }
 }
 
@@ -134,8 +148,8 @@ STATIC_ROOT = os.path.join(BASE_DIR / 'staticfiles')
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR / 'static')]
 
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 MEDIA_URL = '/images/'
 
