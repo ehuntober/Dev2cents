@@ -92,7 +92,7 @@ def edit_account(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, "Profile edited successfully")
-            return redirect('user_account')
+            return redirect('create_cents')
     context = {"profile_form": profile_form, "profile": user_account_profile}
     return render(request, "users/edit-profile.html", context)
 
