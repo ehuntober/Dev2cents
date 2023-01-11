@@ -45,7 +45,6 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'cloudinary',
     'jazzmin',
-    'fontawesomefree',
 ]
 
 LOCAL_APPS = [

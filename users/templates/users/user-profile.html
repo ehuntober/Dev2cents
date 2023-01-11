@@ -21,17 +21,16 @@
                         {% if profile.location %}
                             <p class="card-text">Location: {{ profile.location }}</p>
                         {% endif %}
-                        {% if profile.social_github %}
-                            <a href="{{ profile.social_github }}" style="color: inherit; padding-right: 6px"><i
-                                    class="fa-brands fa-github"></i></a>
+                        {% if user_profile.social_github %}
+                            <a href="{{ user_profile.social_github }}"><i class="bi bi-github" style="color: whitesmoke; padding-right: 6px"></i></a>
                         {% endif %}
-                        {% if profile.social_linkedin %}
-                            <a href="{{ profile.social_github }}" style="color: inherit; padding-right: 6px"><i
-                                    class="fa-brands fa-linkedin"></i></a>
+                        {% if user_profile.social_linkedin %}
+                            <a href="{{ user_profile.social_linkedin }}" style="color: whitesmoke; padding-right: 6px"><i
+                                    class="bi bi-linkedin"></i></a>
                         {% endif %}
-                        {% if profile.social_twitter %}
-                            <a href="{{ profile.social_github }}" style="color: inherit"><i
-                                    class="fa-brands fa-twitter"></i></a>
+                        {% if user_profile.social_twitter %}
+                            <a href="{{ user_profile.social_twitter }}" style="color: whitesmoke"><i
+                                    class="bi bi-twitter"></i></a>
                         {% endif %}
                     </div>
                 </div>
