@@ -16,13 +16,15 @@
                            style="font-family: 'Roboto', sans-serif;">{{ cent.description|safe|linebreaksbr }}</p>
                         {% if cent.owner.profile.social_github %}
                             <a href="{{ cent.owner.profile.social_github }}" target="_blank"><i class="bi bi-github"
-                                                                                style="color: whitesmoke;"></i></a>
+                                                                                                style="color: whitesmoke;"></i></a>
                         {% endif %}
                         <a href="{% url 'user_profile' cent.owner.profile.id %}"
                            style="text-decoration:none;"
                            class="text-danger">
-                            <span>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</span></a> ~
-                        <small><i>{{ cent.owner.profile.title }}</i> </small>
+                            <span>{{ cent.owner.profile.first_name }} {{ cent.owner.profile.last_name }}</span></a>
+                        {% if cent.owner.profile.title %}~
+                            <small><i>{{ cent.owner.profile.title }}</i> </small>
+                        {% endif %}
                         {% comment %} <img src="{% static 'images/download.svg' %}" alt="likes" class="avatar mr-3" width="20"
                          height="20"> {% endcomment %}
 
